@@ -1,0 +1,70 @@
+export const metadata = {
+  title: 'Provincias',
+  description:
+    'Obtén la condificación territorial de las provincias de Costa Rica en formato JSON.',
+}
+
+# Provincias
+
+Las provincias son la primer pieza de información que queremos saber a la hora de obtener la información territorial de un lugar en Costa Rica.
+
+## Listar las provincias {{ tag: 'GET', label: '/provincias' }}
+
+<Row>
+  <Col>
+Por medio de este endpoint se obtiene una **lista** de las siete provincias de Costa Rica, cada una de ellas con su respectiva identificación territorial.
+  </Col>
+  <Col sticky>
+
+   <CodeGroup title="Request" tag="GET" label="/provincias">
+
+```bash {{ title: 'cURL' }}
+curl https://territorios.fetchcr.com/provincias
+```
+
+```js
+const response = await fetch(`https://territorios.fetchcr.com/provincias`)
+
+const data = await response.json()
+```
+
+</CodeGroup>
+<CodeGroup title="Respuesta" >
+
+```json {{ title: 'JSON' }}
+[
+  {
+    "value": "1",
+    "label": "San José"
+  },
+  {
+    "value": "2",
+    "label": "Alajuela"
+  },
+  {
+    "value": "3",
+    "label": "Cartago"
+  },
+  {
+    "value": "4",
+    "label": "Heredia"
+  },
+  {
+    "value": "5",
+    "label": "Guanacaste"
+  },
+  {
+    "value": "6",
+    "label": "Puntarenas"
+  },
+  {
+    "value": "7",
+    "label": "Limón"
+  }
+]
+```
+
+</CodeGroup>
+
+  </Col>
+</Row>

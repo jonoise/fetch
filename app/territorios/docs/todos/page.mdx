@@ -1,0 +1,114 @@
+export const metadata = {
+  title: 'Todos',
+  description: 'Obtén todos los recursos de la API en un sólo request.',
+}
+
+# Todos los recursos
+
+Por medio de este endpoint se pueden obtener todos los recursos de la API en un sólo request. Se enviarán los recursos
+tal y como los tenemos en nuestro sistema, por lo que será tu responsabilidad mapearlos, filtrarlos y ordenarlos.
+
+## Cómo se conforman los recursos
+
+Los recursos que maneja la api son los siguientes:
+
+- **Provincias**: Una **lista** de provincias.
+
+- **Cantones**: Un **objeto** con la identificación territorial de la **provincia** como clave y una lista de cantones como valor.
+
+- **Distritos**: Un **objeto** con la identificación territorial de la **provincia** y del **cantón** como clave y una lista de distritos como valor.
+
+---
+
+## Listar todos los recursos {{ tag: 'GET', label: '/todos' }}
+
+<Row>
+  <Col>
+
+    Este endpoint nos permite obtener todos los recursos que conforman la API.
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="GET" label="/todos">
+
+    ```bash {{ title: 'cURL' }}
+    curl https://territorios.fetchcr.com/todos
+    ```
+
+    ```js
+    const response = await fetch('https://territorios.fetchcr.com/todos')
+
+    const data = await response.json()
+    ```
+
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    {
+      "provincias": [
+        {
+          value: "1",
+          label: "San José"
+        },
+        {
+          value: "2",
+          label: "Alajuela"
+        }
+        ...
+      ],
+
+      "cantones": {
+        "1": [
+          {
+            value: "01",
+            label: "San José"
+          },
+          {
+            value: "02",
+            label: "Escazú"
+          },
+          ...
+        ],
+        "2": [
+          {
+            value: "01",
+            label: "Alajuela"
+          },
+          {
+            value: "02",
+            label: "San Ramón"
+          },
+          ...
+        ]
+      },
+
+      "distritos": {
+        "101": [
+          {
+            value: "01",
+            label: "Carmen"
+          },
+          {
+            value: "02",
+            label: "Merced"
+          },
+          ...
+        ],
+        "102": [
+          {
+            value: "01",
+            label: "Escazú"
+          },
+          {
+            value: "02",
+            label: "San Antonio"
+          },
+          ...
+        ],
+      }
+    }
+    ```
+
+  </Col>
+</Row>

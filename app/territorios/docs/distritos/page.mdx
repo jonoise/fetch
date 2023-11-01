@@ -1,0 +1,163 @@
+export const metadata = {
+  title: 'Distritos',
+  description:
+    'Obtén la condificación territorial de los distritos de Costa Rica en formato JSON.',
+}
+
+# Distritos
+
+Por último, una vez que ya tenemos nuestra provincia y nuestro cantón, podemos consultar los distritos.
+Para esto, usaremos el endpoint `/distritos` y le pasaremos el identificador de la provincia y del cantón que queremos consultar.
+
+En este caso, usaremos el identificador `1` para **limitar** los cantones a San José. Y el identificador `02` para consultar los distritos de Escazú.
+
+Es **necesario** incluir el identificador de la provincia para evitar ambigüedades. Por ejemplo, el cantón de San José (`1`) tiene un cantón con el
+identificador (`02`) y el cantón de Alajuela (`2`) también tiene un cantón con el identificador (`02`).
+
+La concatenación de los identificadores de provincia, cantón y distrito conforman un código postal, en el caso de San Rafael de Escazú sería `10203`.
+
+---
+
+## Distritos por provincia y cantón {{ tag: 'GET', label: '/cantones' }}
+
+<Row>
+  <Col>
+  Obtén una lista de distritos filtrados por provincia y cantón.
+  </Col>
+  <Col>
+<CodeGroup title="Request" tag="GET" label="/distritos/[provincia]/[canton]">
+
+```bash {{ title: 'cURL' }}
+curl https://territorios.fetchcr.com/distritos/1/02
+```
+
+```js
+const response = await fetch(`https://territorios.fetchcr.com/cantones/1/02`)
+
+const data = await response.json()
+```
+
+</CodeGroup>
+
+<CodeGroup title="Respuesta" >
+```json {{ title: 'JSON' }}
+[
+  {
+    "value": "01",
+    "label": "Escazú"
+  },
+  {
+    "value": "02",
+    "label": "San Antonio"
+  },
+  {
+    "value": "03",
+    "label": "San Rafael"
+  }
+]
+```
+</CodeGroup>
+</Col>
+
+</Row>
+
+## Concatenar provincia y cantón {{ tag: 'GET', label: '/distritos' }}
+
+<Row>
+  <Col>
+  Obtén una lista de distritos filtrados concatenando los identificadores territoriales.
+
+Este ejemplo es equivalente al anterior, pero en este caso, concatenamos los identificadores de provincia y cantón para obtener el mismo resultado.
+
+  </Col>
+  <Col>
+<CodeGroup title="Request" tag="GET" label="/distritos/[concatenacion]">
+
+```bash {{ title: 'cURL' }}
+curl https://territorios.fetchcr.com/distritos/102
+```
+
+```js
+const response = await fetch(`https://territorios.fetchcr.com/cantones/102`)
+
+const data = await response.json()
+```
+
+</CodeGroup>
+
+<CodeGroup title="Respuesta" >
+```json {{ title: 'JSON' }}
+[
+  {
+    "value": "01",
+    "label": "Escazú"
+  },
+  {
+    "value": "02",
+    "label": "San Antonio"
+  },
+  {
+    "value": "03",
+    "label": "San Rafael"
+  }
+]
+```
+</CodeGroup>
+</Col>
+
+</Row>
+
+---
+
+## Todos los distritos {{ tag: 'GET', label: '/distritos' }}
+
+<Row>
+  <Col>
+  Obtén un **objeto** con la identificación territorial de la **provincia** y del **cantón** como clave y una lista de distritos como valor.
+  </Col>
+  <Col>
+<CodeGroup title="Request" tag="GET" label="/distritos">
+
+```bash {{ title: 'cURL' }}
+curl https://territorios.fetchcr.com/distritos
+```
+
+```js
+const response = await fetch(`https://territorios.fetchcr.com/distritos`)
+
+const data = await response.json()
+```
+
+</CodeGroup>
+
+<CodeGroup title="Respuesta" >
+```json {{ title: 'JSON' }}
+{
+  "101": [
+    {
+      "value": "01",
+      "label": "Carmen"
+    },
+    {
+      "value": "02",
+      "label": "Merced"
+    }
+    ...
+  ],
+  "102": [
+    {
+      "value": "01",
+      "label": "Escazú"
+    },
+    {
+      "value": "02",
+      "label": "San Antonio"
+    }
+    ...
+  ],
+}
+```
+</CodeGroup>
+</Col>
+
+</Row>

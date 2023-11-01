@@ -1,0 +1,137 @@
+export const metadata = {
+  title: 'Cantones',
+  description:
+    'Obtén la condificación territorial de los cantones de Costa Rica en formato JSON.',
+}
+
+# Cantones
+
+Una vez que tenemos la provincia que queremos consultar, la siguiente pieza de información sería obtener los cantones de dicha provincia.
+
+---
+
+## Cantones por provincia {{ tag: 'GET', label: '/cantones' }}
+
+<Row>
+  <Col>
+Por medio de este endpoint se obtiene una **lista** de los cantones de la provincia consultada.
+
+    ### Parámetros
+
+    <Properties>
+      <Property name="provincia" type="string">
+        La provincia de la cuál se desean obtener sus cantones.
+      </Property>
+
+    </Properties>
+
+  </Col>
+  <Col sticky>
+
+   <CodeGroup title="Request" tag="GET" label="/cantones/[provincia]">
+
+```bash {{ title: 'cURL' }}
+curl https://territorios.fetchcr.com/cantones/1
+```
+
+```js
+const response = await fetch(`https://territorios.fetchcr.com/cantones/1`)
+
+const data = await response.json()
+```
+
+</CodeGroup>
+<CodeGroup title="Respuesta" >
+
+```json {{ title: 'JSON' }}
+[
+  {
+    "value": "01",
+    "label": "San José"
+  },
+  {
+    "value": "02",
+    "label": "Escazú"
+  },
+  {
+    "value": "03",
+    "label": "Desamparados"
+  },
+  {
+    "value": "04",
+    "label": "Puriscal"
+  },
+  {
+    "value": "05",
+    "label": "Tarrazú"
+  },
+  {
+    "value": "06",
+    "label": "Aserrí"
+  }
+  ...
+]
+```
+
+</CodeGroup>
+
+  </Col>
+</Row>
+
+---
+
+## Todos los cantones {{ tag: 'GET', label: '/cantones' }}
+
+<Row>
+  <Col>
+Por medio de este endpoint se obtiene un **objeto** con la identificación territorial de la **provincia** como clave y una lista de cantones como valor.
+
+  </Col>
+  <Col sticky>
+
+   <CodeGroup title="Request" tag="GET" label="/cantones">
+
+```bash {{ title: 'cURL' }}
+curl https://territorios.fetchcr.com/cantones
+```
+
+```js
+const response = await fetch(`https://territorios.fetchcr.com/cantones`)
+
+const data = await response.json()
+```
+
+</CodeGroup>
+<CodeGroup title="Respuesta" >
+
+```json {{ title: 'JSON' }}
+{
+  "1": [
+    {
+      "value": "01",
+      "label": "San José",
+    },
+    {
+      "value": "02",
+      "label": "Escazú",
+    },
+    ...
+  ]
+  "2": [
+    {
+      "value": "01",
+      "label": "Alajuela",
+    },
+    {
+      "value": "02",
+      "label": "San Ramón",
+    },
+    ...
+  ]
+}
+```
+
+</CodeGroup>
+
+  </Col>
+</Row>

@@ -1,0 +1,71 @@
+export const metadata = {
+  title: 'Errores',
+  description:
+    'En esta guía veremos los errores que puede devolver la API de Territorios.',
+}
+
+# Errors
+
+Se puede saber si la solicitud fue exitosa verificando el `status` al recibir una respuesta de la API.
+Si una respuesta no es exitosa, la API devolverá un código `400` o `500` y un mensaje de error.
+
+<Note>
+  Antes de contactarme personalmente para pedir ayuda, por favor lean la
+  documentación y asegúrense de que no están haciendo nada mal.
+</Note>
+
+---
+
+## Status codes
+
+Aquí algunos de los códigos de estado que pueden recibir al hacer una solicitud a la API.
+
+<Properties>
+  <Property name='2xx'>
+    Un status 2xx indica que la solicitud fue exitosa.
+  </Property>
+  <Property name='4xx'>
+    Un status 4xx indica que la solicitud fue incorrecta o no se pudo procesar.
+  </Property>
+  <Property name='5xx'>
+    Un status 5xx indica que la API no pudo procesar la solicitud debido a un
+    error en el servidor.
+  </Property>
+</Properties>
+
+---
+
+## Mensajes de error
+
+<Row>
+  <Col>
+
+    Cuando la API no puede procesar una solicitud, devolverá un mensaje de error. Este mensaje de error contiene información sobre lo que salió mal y cómo solucionarlo.
+
+    Aquí una lista de los mensajes de error que pueden recibir al hacer una solicitud a la API.
+
+    <Properties>
+      <Property name="invalid_request">
+        Significa que la solicitud no se pudo procesar porque la solicitud era incorrecta.
+      </Property>
+      <Property name="rate_limit">
+        Por el momento el límite aplica a todos los usuarios por igual. Si se excede el límite, la API devolverá un error `429`. Por el momento se pueden hacer 100 requests cada 10 segundos.
+
+      <Badge variant='warning'>En desarrollo</Badge>
+        Estaremos trabajando en un sistema de autenticación para que los usuarios puedan hacer más requests por segundo.
+      </Property>
+    </Properties>
+
+  </Col>
+  <Col>
+
+    ```bash {{ title: "Respuesta de error" }}
+    {
+      "type": "invalid_request",
+      "message": "Se debe incluir provincia y cantón: /distritos/1/01 o /distritos/101",
+      "documentation_url": "https://territorios.fetchcr.com/docs/distritos"
+    }
+    ```
+
+  </Col>
+</Row>
