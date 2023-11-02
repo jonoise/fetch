@@ -127,3 +127,29 @@ export const Badge = ({
     </span>
   )
 }
+
+export const Button = ({
+  children,
+  variant,
+  ...props
+}: {
+  children: React.ReactNode
+  variant?: string
+} & React.ComponentPropsWithoutRef<'button'>) => {
+  return (
+    <button
+      className={cn(
+        'inline-flex items-center px-3 py-1.5 rounded-md text-sm font-medium transition',
+        variant === 'primary' &&
+          'bg-emerald-600 text-white hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-600',
+        variant === 'secondary' &&
+          'bg-zinc-100 text-zinc-800 dark:bg-zinc-800 dark:text-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-700',
+        !variant &&
+          'bg-zinc-100 text-zinc-800 dark:bg-zinc-800 dark:text-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-700'
+      )}
+      {...props}
+    >
+      {children}
+    </button>
+  )
+}

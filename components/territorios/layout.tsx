@@ -10,6 +10,7 @@ import { Header } from '../docs/header'
 import { Navigation } from '../docs/navigation'
 import { Globe } from 'lucide-react'
 import { MobileNavigation } from '../docs/mobile-navigation'
+import DocsFooter from '../docs/footer'
 
 export function Layout({
   children,
@@ -42,8 +43,8 @@ export function Layout({
         </motion.header>
         <div className='relative flex h-full flex-col px-4 pt-14 sm:px-6 lg:px-8'>
           <main className='flex-auto'>{children}</main>
-          {/* <Footer /> */}
         </div>
+        <DocsFooter />
       </div>
     </SectionProvider>
   )

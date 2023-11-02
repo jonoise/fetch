@@ -30,6 +30,9 @@ Nuestro primer request será al endpoint de provincias. Este endpoint nos devuel
   <Col>
   Todos los recursos (provincias, cantones, distritos) de esta API tienen las propiedades `value` y `label`.
    `value` es el identificador territorial y `label` es el nombre del territorio.
+
+[<Button>Ver Docs de Provincias</Button>](/docs/provincias)
+
   </Col>
   <Col>
 <CodeGroup title="Request" tag="GET" label="/provincias">
@@ -98,6 +101,8 @@ Nótese que los cantones tienen un identificador territorial de dos dígitos. Po
 
 Recuerda que puedes consultar la lista completa de provincias en el endpoint `/provincias`.
 
+[<Button>Ver Docs de Cantones</Button>](/docs/cantones)
+
   </Col>
   <Col>
 <CodeGroup title="Request" tag="GET" label="/cantones/[provincia]">
@@ -163,6 +168,8 @@ Es **necesario** incluir el identificador de la provincia para evitar ambigüeda
 identificador (`02`) y el cantón de Alajuela (`2`) también tiene un cantón con el identificador (`02`).
 
 La concatenación de los identificadores de provincia, cantón y distrito conforman un código postal, en el caso de San Rafael de Escazú sería `10203`.
+
+[<Button>Ver Docs de Distritos</Button>](/docs/distritos)
 
   </Col>
   <Col>

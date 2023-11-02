@@ -4,7 +4,7 @@ import clsx from 'clsx'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { Search } from './search'
 import { Button } from '../ui/button'
-import { TERRITORIOS_URL } from '@/lib/constants/global'
+import { TERRITORIOS_URL, fullHost } from '@/lib/constants/global'
 import { Globe } from 'lucide-react'
 import { MobileNavigation } from './mobile-navigation'
 
@@ -56,6 +56,7 @@ export const Header = forwardRef<
             <TopLevelNavItem href='https://github.com/fetchcr'>
               Github
             </TopLevelNavItem>
+            <TopLevelNavItem href={fullHost}>Fetch</TopLevelNavItem>
           </ul>
         </nav>
         <div className='hidden md:block md:h-5 md:w-px md:bg-zinc-900/10 md:dark:bg-white/15' />

@@ -23,6 +23,19 @@ La concatenación de los identificadores de provincia, cantón y distrito confor
 <Row>
   <Col>
   Obtén una lista de distritos filtrados por provincia y cantón.
+   
+   ### Parámetros
+
+    <Properties>
+      <Property name="provincia" type="string">
+        Identificador de provincia de `1` dígito.
+      </Property>
+      <Property name="canton" type="string">
+        Identificador de cantón de `2` dígitos.
+      </Property>
+
+    </Properties>
+
   </Col>
   <Col>
 <CodeGroup title="Request" tag="GET" label="/distritos/[provincia]/[canton]">
@@ -68,6 +81,16 @@ const data = await response.json()
   Obtén una lista de distritos filtrados concatenando los identificadores territoriales.
 
 Este ejemplo es equivalente al anterior, pero en este caso, concatenamos los identificadores de provincia y cantón para obtener el mismo resultado.
+
+### Parámetros
+
+    <Properties>
+      <Property name="concatenacion" type="string">
+        Valor de 3 dígitos. Identificador de provincia de `1` dígito junto al identificador de cantón de `2` dígitos.
+      </Property>
+
+
+    </Properties>
 
   </Col>
   <Col>

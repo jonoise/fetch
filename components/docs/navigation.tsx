@@ -11,6 +11,7 @@ import { Tag } from '@/components/docs/tag'
 import { remToPx, withoutFirstPath } from '@/lib/utils'
 
 import { create } from 'zustand'
+import { fullHost } from '@/lib/constants/global'
 
 export const useMobileOpenStore = create<{
   mobileOpen: boolean
@@ -284,6 +285,10 @@ export function Navigation(props: React.ComponentPropsWithoutRef<'nav'>) {
         <TopLevelNavItem onClick={() => setMobileOpen(false)} href='/docs'>
           Documentación
         </TopLevelNavItem>
+        <TopLevelNavItem href={`https://github.com/fetchcr`}>
+          Github
+        </TopLevelNavItem>
+        <TopLevelNavItem href={fullHost}>Fetch</TopLevelNavItem>
 
         {navigation.map((group, groupIndex) => (
           <NavigationGroup

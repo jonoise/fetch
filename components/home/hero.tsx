@@ -42,8 +42,8 @@ export const HomeHero = () => {
           currentColor && `${currentColor.text.left} ${currentColor.text.right}`
         )}
       >
-        <span>APIs para</span>
-        <span>Costa Rica</span>
+        <span>Software</span>
+        <span>para PYMES</span>
       </h1>
 
       <div className='my-20 grid lg:grid-cols-3 gap-5 px-4'>
@@ -74,8 +74,8 @@ export const HomeHero = () => {
         ))}
       </div>
       <div className='flex flex-col space-y-5 items-center'>
-        <p className='text-muted-foreground'>Hecho por Amilcar Munoz</p>
-        {/* <div className='flex space-x-10 items-center'>
+        <p className='text-muted-foreground'>Somos el equipo detrás de </p>
+        <div className='flex space-x-10 items-center'>
           <Link
             href={'https://bando.tienda'}
             className='flex space-x-2 items-center opacity-80 hover:opacity-100 transition duration-300 ease-out'
@@ -95,7 +95,7 @@ export const HomeHero = () => {
             <h1 className='text-4xl font-bold'>L</h1>
             <h4 className='text-xl'>Lumify</h4>
           </Link>
-        </div> */}
+        </div>
       </div>
     </section>
   )
