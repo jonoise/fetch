@@ -73,7 +73,7 @@ export const HomeHero = () => {
           </div>
         ))}
       </div>
-      <div className='flex flex-col space-y-5 items-center'>
+      {/* <div className='flex flex-col space-y-5 items-center'>
         <p className='text-muted-foreground'>Somos el equipo detrás de </p>
         <div className='flex space-x-10 items-center'>
           <Link
@@ -96,7 +96,7 @@ export const HomeHero = () => {
             <h4 className='text-xl'>Lumify</h4>
           </Link>
         </div>
-      </div>
+      </div> */}
     </section>
   )
 }
